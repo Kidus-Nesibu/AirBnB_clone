@@ -16,8 +16,8 @@ class BaseModel:
 
     def __str__(self):
         """Return stirng Representation of the class"""
-        return "[{}] ({}) {}" \
-            .format(type(self.__name__), self.id, self.__dict__)
+        return "[{}] ({}) {}".\
+            format(type(self.__name__), self.id, self.__dict__)
 
     def to_dict(self):
         """A dictionary representation of the class"""
