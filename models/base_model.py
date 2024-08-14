@@ -16,8 +16,7 @@ class BaseModel:
 
     def __str__(self):
         """Return stirng Representation of the class"""
-        return "[{}] ({}) {}".\
-            format(type(self.__name__), self.id, self.__dict__)
+        return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
 
     def to_dict(self):
         """A dictionary representation of the class"""
@@ -25,3 +24,4 @@ class BaseModel:
         dictionary["__class__"] = type(self).__name__
         dictionary["created_at"] = self.__dict__["created_at"].isoformat()
         dictionary["updated_at"] = self.__dict__["updated_at"].isoformat()
+        return dictionary
