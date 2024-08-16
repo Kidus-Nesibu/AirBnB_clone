@@ -2,7 +2,7 @@
 """Base model script """
 import uuid
 from datetime import datetime
-
+import storage
 
 class BaseModel:
     """Class that is inherited from"""
@@ -27,6 +27,7 @@ class BaseModel:
 
     def save(self):
         self.updated_at = datetime.now()
+        storage.save()
 
     def __str__(self):
         """Return stirng presentation of the class"""
