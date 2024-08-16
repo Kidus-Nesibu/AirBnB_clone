@@ -8,8 +8,8 @@ class BaseModel:
     """Class that is inherited from"""
 
     def __init__(self, *args, **kwargs):
-        if kwargs is not none and kwargs != {}:
-            for key, value in kwargs:
+        if kwargs is not None and kwargs != {}:
+            for key in kwargs:
                 if key == "created_at":
                     self.__dict__["created_at"] = datetime.strptime(
                         kwargs["created_at"], "%Y-%m-%dT%H:%M:%S.%f"
