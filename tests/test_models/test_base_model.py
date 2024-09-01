@@ -34,12 +34,18 @@ class TestBaseModel(unittest.TestCase):
         instance attribute is updated by the
         save method
         """
-        self.my_model.save()
 
         self.assertIsInstance(self.my_model.id, str)
         self.assertIsInstance(self.my_model.created_at, datetime.datetime)
         self.assertIsInstance(self.my_model.updated_at, datetime.datetime)
-    
+
+        dict_one = self.my_model.to_dict()
+
+        self.my_model.save()
+        dict_two = self.my_model.to_dict()
+
+        self.assertNotEqual(dict_one['updated_at'], dict_two['updated_at'])
+
 
     def test_str(self):
         """Test method for str representation
