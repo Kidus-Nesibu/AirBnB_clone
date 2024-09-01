@@ -39,6 +39,14 @@ class TestBaseModel(unittest.TestCase):
         self.assertIsInstance(self.my_model.id, str)
         self.assertIsInstance(self.my_model.created_at, datetime.datetime)
         self.assertIsInstance(self.my_model.updated_at, datetime.datetime)
+    
+
+    def test_str(self):
+        """Test method for str representation
+        """
+        b1 = BaseModel()
+        string = f"[{type(b1).__name__}] ({b1.id}) {b1.__dict__}"
+        self.assertEqual(b1.__str__(), string)
 
 
 if __name__ == '__main__':
