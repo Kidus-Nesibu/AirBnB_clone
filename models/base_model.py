@@ -12,7 +12,7 @@ class BaseModel:
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
     def __str__(self):
-        return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
+        return f"[{type(self).__name__}] ({self.id}) {self.__dict__}"
 
     def save(self):
         """saves the time that it is created"""
@@ -21,7 +21,7 @@ class BaseModel:
     def to_dict(self):
         """Converts the methods into dictionary"""
         dictionary = self.__dict__.copy()
-        dictionary['class'] = type(self).__name__
+        dictionary['__class__'] = type(self).__name__
         dictionary['created_at'] = datetime.now().isoformat()
         dictionary['updated_at'] = datetime.now().isoformat()
 
