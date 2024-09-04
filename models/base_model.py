@@ -5,7 +5,6 @@ import uuid
 from datetime import datetime
 
 
-
 class BaseModel:
     """Base model that every thing will inherit from"""
     def __init__(self, *args, **kwargs):
